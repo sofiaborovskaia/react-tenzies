@@ -11,7 +11,6 @@ function App() {
 			let diceObj = { value: randomNumber, isHeld: false, id: nanoid() };
 			diceArr.push(diceObj);
 		}
-		console.log(diceArr);
 		return diceArr;
 	}
 
@@ -20,7 +19,7 @@ function App() {
 
 	// Render random numbers inside dice faces
 	const diceElements = dice.map((die) => {
-		return <Die value={die.value} key={die.id} />;
+		return <Die value={die.value} key={die.id} isHeld={die.isHeld} />;
 	});
 
 	// On dice roll

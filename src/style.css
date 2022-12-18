@@ -41,6 +41,10 @@ main {
 	place-items: center;
 }
 
+.die.active {
+	background-color: rgb(215, 221, 219);
+}
+
 .die-text {
 	color: rebeccapurple;
 	font-size: 2rem;
