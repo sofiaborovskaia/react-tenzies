@@ -23,7 +23,7 @@ main {
 	place-items: center;
 }
 
-.dices-wrapper {
+.dice-wrapper {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: 0.5rem;
