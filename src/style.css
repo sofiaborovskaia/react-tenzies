@@ -30,10 +30,18 @@ main {
 }
 
 .die {
-	background-color: rgb(179, 179, 179);
+	background-color: white;
 	width: 2.5rem;
 	height: 2.5rem;
+	border-radius: 5px;
+	border: 1px rebeccapurple solid;
+	cursor: pointer;
 
 	display: grid;
 	place-items: center;
+}
+
+.die-text {
+	color: rebeccapurple;
+	font-size: 2rem;
 }
