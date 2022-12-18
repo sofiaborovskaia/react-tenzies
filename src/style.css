@@ -45,3 +45,13 @@ main {
 	color: rebeccapurple;
 	font-size: 2rem;
 }
+
+.roll-dice-button {
+	padding: 1rem;
+	background: green;
+	color: white;
+	font-family: "Times New Roman", Times, serif;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
