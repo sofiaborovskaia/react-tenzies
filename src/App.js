@@ -1,11 +1,13 @@
 import Die from "./Die";
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
+import ConfettiExplosion from "react-confetti-explosion";
 
 function App() {
 	// Set state to the array of random numbers
 	const [dice, setDice] = useState(newDice());
 	const [tenzies, setTenzies] = useState(false);
+	const [isExploding, setIsExploding] = useState(false);
 
 	useEffect(() => {
 		let valuesArr = dice.map((die) => die.value);
@@ -14,7 +16,7 @@ function App() {
 
 		if (allDieHeld && allDieEqual) {
 			setTenzies(true);
-			console.log("You won!");
+			setIsExploding(true);
 		}
 	}, [dice]);
 
@@ -65,6 +67,12 @@ function App() {
 		);
 	});
 
+	const newGame = () => {
+		setDice(newDice());
+		setTenzies(false);
+		setIsExploding(false);
+	};
+
 	return (
 		<main>
 			<h1 className="title">Tenzies</h1>
@@ -73,17 +81,20 @@ function App() {
 				current value between rolls.
 			</p>
 			<div className="dice-wrapper">{diceElements}</div>
-			<button className="roll-dice-button" onClick={rollDice}>
-				Roll
-			</button>
-			<div
-				className="aff-name"
-				style={{ textAlign: "left", marginLeft: "2rem", fontSize: "15px" }}
+			<button
+				className="roll-dice-button"
+				onClick={tenzies ? newGame : rollDice}
 			>
-				{dice.length > 0 ? dice.length : <p>-</p>}
-			</div>
+				{tenzies ? "New game" : "Roll"}
+			</button>
+			{isExploding && <ConfettiExplosion />}
 		</main>
 	);
 }
+
+// Ideas for the future:
+// - put real dots on the dice
+// - track the number of rolls / time it took to win
+// - store those best results in local storage
 
 export default App;
